@@ -1,7 +1,7 @@
 # canGw_simple1
 
 
-canGw_simple1 est un projet très simple pour scanner les trames circulant sur un bus CAN et être utilisées par des applications basées elle sur des réseaux TCP.
+canGw_simple1 est un projet très simple pour scanner les trames circulant sur un bus CAN et pouvoir être utilisées par des applications basées sur des réseaux TCP.
 
 Il est constitué de :
 
