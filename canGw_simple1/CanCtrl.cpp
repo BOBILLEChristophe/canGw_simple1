@@ -56,36 +56,36 @@ int GW_Can::msgRx() {
   if (xQueueReceive(CAN_cfg.rx_queue, &rx_frame, 3 * portTICK_PERIOD_MS) == pdTRUE) {
     switch (rx_frame.FIR.B.DLC) {
       case 0 :
-        sprintf(mInputMsg, "%d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC);
+        sprintf(mInputMsg, "%x %d %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC);
         break;
       case 1 :
-        sprintf(mInputMsg, "%d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0]);
+        sprintf(mInputMsg, "%x %d %d %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0]);
         break;
       case 2 :
-        sprintf(mInputMsg, "%d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1]);
+        sprintf(mInputMsg, "%x %d %d %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1]);
         break;
       case 3 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2]);
         break;
       case 4 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3]);
         break;
       case 5 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4]);
         break;
       case 6 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5]);
         break;
       case 7 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5], rx_frame.data.u8[6]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x %x %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5], rx_frame.data.u8[6]);
         break;
       case 8 :
-        sprintf(mInputMsg, "%d %d %d %d %d %d %d %d %d %d %d", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5], rx_frame.data.u8[6], rx_frame.data.u8[7]);
+        sprintf(mInputMsg, "%x %d %d %x %x %x %x %x %x %x %x", rx_frame.MsgID, rx_frame.FIR.B.FF, rx_frame.FIR.B.DLC, rx_frame.data.u8[0], rx_frame.data.u8[1], rx_frame.data.u8[2], rx_frame.data.u8[3], rx_frame.data.u8[4], rx_frame.data.u8[5], rx_frame.data.u8[6], rx_frame.data.u8[7]);
         break;
     }
 
 #ifdef DEBUG
-    dbg_output.print("\nReception d'un message sur le bus CAN\n");
+    dbg_output.print("\Reception d'un message sur le bus CAN\n");
     dbg_output.printf("Id         : 0x%X\n", rx_frame.MsgID);
     dbg_output.printf("Type       : %d\n", rx_frame.FIR.B.FF);
     dbg_output.printf("Length     : %d\n", rx_frame.FIR.B.DLC);
