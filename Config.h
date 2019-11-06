@@ -22,13 +22,13 @@
 
 
 // WIFI
-#define WIFI_SSID                "Freebox-750000"
-#define WIFI_PSW                 "FLAVY24175"
+#define WIFI_SSID                "xxxxxxxxxx"
+#define WIFI_PSW                 "xxxxxxxxxx"
 
 #define MDNS_NAME                "cangw"
 
 #define OTAName                  "cangw"           
-#define OTAPassword              "FLAVY24175"
+#define OTAPassword              "xxxxxxxxxx"
 
 #define TPC_PORT                  12560
 
