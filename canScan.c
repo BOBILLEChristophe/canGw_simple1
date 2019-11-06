@@ -1,4 +1,4 @@
-  // ----------------------------------------------------
+    // ----------------------------------------------------
   // Nom utilisateur (OS) : Christophe
   // Date et heure : 29/10/19, 23:28:29
   // -------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ C_ENTIER($5)
 $int_async:=$5
 Fin de si 
 
-
+Repeter 
   // Ouverture de la connexion
 Boucle ($i;1;10)
 $err:=TCP_Open ($str_ip;$int_port;$intl_tcp_id;$int_async)
@@ -92,3 +92,6 @@ Fin de cas
 
 $err:=TCP_Close ($intl_tcp_id)
 Fin de cas 
+ENDORMIR PROCESS(Numero du process courant;10*60)
+Jusque (<>quitScan1=Vrai)  // Permet une reconnexion automatique au serveur
+
