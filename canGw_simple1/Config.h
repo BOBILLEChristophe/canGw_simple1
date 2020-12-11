@@ -28,7 +28,7 @@
 #define MDNS_NAME                "cangw"
 
 #define OTAName                  "cangw"           
-#define OTAPassword              "FLAVY24175"
+#define OTAPassword              "xxxxxxxxxx"
 
 #define TPC_PORT                  12560
 
